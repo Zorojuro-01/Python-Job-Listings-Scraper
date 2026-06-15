@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
-from IPython.display import display, Markdown
+
 # Show every row
 pd.set_option('display.max_rows', None)
 
@@ -15,7 +15,7 @@ pd.set_option('display.max_colwidth', None)
 url = 'https://realpython.github.io/fake-jobs/'
 page = requests.get(url)
 soup = BeautifulSoup(page.text, 'html')
-print(soup.prettify)
+
 #scraping the data needed
 job_titles = soup.find_all('h2', class_='title is-5' )
 job_table_titles = [title.text for title in job_titles]
